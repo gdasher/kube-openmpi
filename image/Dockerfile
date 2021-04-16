@@ -33,7 +33,6 @@ VOLUME $HOME
 
 COPY rootfs /
 
-# check if open mpi was successfully built with cuda support.
 EXPOSE 2022
 
 # sshd can be run either by root or $SSH_USER
