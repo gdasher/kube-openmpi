@@ -47,7 +47,7 @@ spec:
 {{- if .Values.mpiWorkers.customScheduling.enabled }}
       schedulerName: {{.Values.mpiWorkers.customScheduling.schedulerName}}
 {{- end }}
-      serviceAccountName: openmpisa
+      serviceAccountName: {{ .Values.serviceAccountConfig.k8sName }}
       securityContext:
 {{ toYaml .Values.mpiWorkers.securityContext | indent 8 }}
 {{- if .Values.image.pullSecrets }}
@@ -159,7 +159,7 @@ metadata:
     {{if .Values.networkPolicy.enabled }}allow_from_external: "true"{{ end }}
 spec:
   restartPolicy: OnFailure
-  serviceAccountName: openmpisa
+  serviceAccountName: {{ .Values.serviceAccountConfig.k8sName }}
   hostname: {{ .Release.Name }}-master
   subdomain: {{ .Release.Name }}
 {{- if .Values.mpiMaster.customScheduling.enabled }}

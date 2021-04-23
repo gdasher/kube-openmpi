@@ -18,10 +18,7 @@ metadata:
   namespace: default
 subjects:
 - kind: ServiceAccount
-  name: default # Name is case sensitive
-  namespace: default
-- kind: ServiceAccount
-  name: openmpisa # Name is case sensitive
+  name: {{ .Values.serviceAccountConfig.k8sName }} # Name is case sensitive
   namespace: default
 roleRef:
   kind: Role

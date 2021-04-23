@@ -6,14 +6,16 @@ image:
   # - name: ""
 
 kubectlImage:
-  repository: everpeace/kubectl
-  tag: 1.9.2
-  pullPolicy: IfNotPresent
+  repository: dtzar/helm-kubectl
+  tag: 3.5.0 
 
 gitSyncImage:
   repository: gcr.io/google_containers/git-sync
   tag: v2.0.6
   pullPolicy: IfNotPresent
+
+serviceAccountConfig:
+  k8sName: default
 
 networkPolicy:
   enabled: false
@@ -60,7 +62,7 @@ mpiMaster:
   # volumeMounts:
 
 mpiWorkers:
-  num: 4
+  num: 1
   securityContext:
   #   runAsUser: 1000
   #   fsGroup: 1000
